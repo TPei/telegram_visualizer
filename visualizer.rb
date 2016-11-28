@@ -20,7 +20,8 @@ messages_hash = Hash.new { |h,k| h[k] = Array.new }
 
 messages.each do |message|
   msg = eval(message)
-  sender = msg[:from][:first_name].to_sym
+  sender = (msg[:from][:first_name] || 'unknown').to_sym
+
   transformed_hash = { text: msg[:text], date: msg[:date] }
 
   messages_hash[sender] << transformed_hash
