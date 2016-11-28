@@ -4,6 +4,8 @@
 Visualize messages per week per user in your telegram chats. Who writes
 more, you or your girlfriend ;)
 
+![demo_graph](https://raw.githubusercontent.com/TPei/telegram_visualizer/master/messages_per_week.png)
+
 Supported visualizations (per chat):
 - [x] messages per week per user
 - [ ] words per week per user
