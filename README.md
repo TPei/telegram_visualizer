@@ -19,5 +19,5 @@ Look in awe at the totally super graph
 ## TODO:
 - [x] make this versatile for all users, any chat size
 - [x] ask for chat history .jsonl file
-- [] fix image size issue
-- [] maybe find a better graphing lib
+- [ ] fix image size issue
+- [ ] maybe find a better graphing lib
