@@ -1,7 +1,14 @@
 # visualize telegram chat history
 
 ## visualize messages per week per user in chat
-So far I only hard coded this for one chat with specific usernames
+Visualize messages per week per user in your telegram chats. Who writes
+more, you or your girlfriend ;)
+
+Supported visualizations (per chat):
+- [x] messages per week per user
+- [ ] words per week per user
+- [ ] average number of words per message per user (over time?)
+- [ ] ?
 
 ## Installation
 `bundle install` to install the required gems
@@ -9,7 +16,7 @@ So far I only hard coded this for one chat with specific usernames
 You might need to run `sudo apt install imagemagick libmagickwand-dev` to get rmagick working
 
 ## Prerequisites
-Get your telegram history with (this gem)[https://github.com/tvdstaaij/telegram-history-dump]
+Dump your telegram history with (this script)[https://github.com/tvdstaaij/telegram-history-dump] to json
 
 ## Usage
 `ruby visualize.rb`
