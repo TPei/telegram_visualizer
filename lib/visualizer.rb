@@ -14,14 +14,14 @@ rescue Errno::ENOENT
 end
 
 ### ==== gather relevant data ==== ####
-# empty array for every user
 puts 'Gathering data'
+# empty array for every user
 messages_hash = Hash.new { |h,k| h[k] = Array.new }
 
 messages.each do |message|
+  # in a jsonl file each line is a json object, eval makes it a hash
   msg = eval(message)
   sender = (msg[:from][:first_name] || 'unknown').to_sym
-
   transformed_hash = { text: msg[:text], date: msg[:date] }
 
   messages_hash[sender] << transformed_hash
@@ -73,5 +73,6 @@ datas.each do |key, values|
   g.data(key, values)
 end
 
+puts 'Writing file'
 g.write('messages_per_week.png')
 puts 'All done. Goodbye!'
