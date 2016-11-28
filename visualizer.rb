@@ -39,7 +39,6 @@ week_messages.values.sample.each_with_index do |week, index|
   week_label_hash[index] = week[0]
 end
 
-
 ### === count messages per week per user === ###
 # empty array for every user
 datas = Hash.new { |h,k| h[k] = Array.new }
