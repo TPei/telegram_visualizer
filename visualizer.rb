@@ -1,11 +1,21 @@
 require 'gruff'
 require 'json'
 
-# TODO: ask for filename input
-messages = File.read('/home/tpei/Code/tg/telegram-history-dump/output/json/Merle.jsonl').split("\n")
+### === read history file === ###
+puts 'Enter path to chat history [./history.json]'
+file_path = gets.chomp
+file_path = './history.jsonl' if file_path.empty?
+
+begin
+  messages = File.read(file_path).split("\n")
+rescue Errno::ENOENT
+  puts "ERROR: File not found: #{file_path}"
+  exit
+end
 
 ### ==== gather relevant data ==== ####
 # empty array for every user
+puts 'Gathering data'
 messages_hash = Hash.new { |h,k| h[k] = Array.new }
 
 messages.each do |message|
@@ -17,6 +27,7 @@ messages.each do |message|
 end
 
 ### ==== transform data to week-oriented format ==== ####
+puts 'Transforming data to week-oriented format'
 week_messages = {}
 
 messages_hash.each do |name, messages|
@@ -41,6 +52,7 @@ end
 
 ### === count messages per week per user === ###
 # empty array for every user
+puts 'Count messages per week per user'
 datas = Hash.new { |h,k| h[k] = Array.new }
 
 week_messages.each do |name, weeks|
@@ -51,6 +63,7 @@ end
 
 ### === create the graph === ###
 # create graph
+puts 'Generate the graph'
 g = Gruff::Line.new(2000)
 g.title = 'Messages per week!'
 g.labels = week_label_hash
@@ -60,3 +73,4 @@ datas.each do |key, values|
 end
 
 g.write('messages_per_week.png')
+puts 'All done. Goodbye!'
