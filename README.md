@@ -17,7 +17,7 @@ Get your telegram history with (this gem)[https://github.com/tvdstaaij/telegram-
 Look in awe at the totally super graph
 
 ## TODO:
-- [] make this versatile for all users, any chat size
-- [] ask for chat history .jsonl file
+- [x] make this versatile for all users, any chat size
+- [x] ask for chat history .jsonl file
 - [] fix image size issue
 - [] maybe find a better graphing lib
