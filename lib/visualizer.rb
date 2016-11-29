@@ -65,7 +65,7 @@ end
 ### === create the graph === ###
 # create graph
 puts 'Generate the graph'
-g = Gruff::Line.new(2000)
+g = Gruff::Line.new('1600x900')
 g.title = 'Messages per week!'
 g.labels = week_label_hash
 
